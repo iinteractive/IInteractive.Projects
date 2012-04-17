@@ -86,6 +86,7 @@
   <ItemGroup>
     <None Include="app.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
     <None Include="private.config">
