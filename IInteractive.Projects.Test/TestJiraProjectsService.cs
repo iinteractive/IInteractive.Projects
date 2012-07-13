@@ -67,14 +67,14 @@ namespace IInteractive.Projects.Test
             try
             {
                 IAuthenticationToken authenticationToken = _service.Login(Username, Password);
+
+                Assert.IsNotNull(authenticationToken);
+                Assert.IsFalse(string.IsNullOrWhiteSpace(authenticationToken.Token));
             }
             catch (Exception exception)
             {
                 Assert.Fail("Failed to login ({0},{1}) due to exception: {2}", Username, Password, exception.Message);
             }
-
-            Assert.IsNotNull(authenticationToken);
-            Assert.IsFalse(string.IsNullOrWhiteSpace(authenticationToken.Token));
         }
 
         [TestMethod]
