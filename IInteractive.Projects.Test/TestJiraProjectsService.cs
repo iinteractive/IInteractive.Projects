@@ -64,7 +64,14 @@ namespace IInteractive.Projects.Test
         [TestMethod]
         public void TestLoginUser()
         {
-            IAuthenticationToken authenticationToken = _service.Login(Username, Password);
+            try
+            {
+                IAuthenticationToken authenticationToken = _service.Login(Username, Password);
+            }
+            catch (Exception exception)
+            {
+                Assert.Fail("Failed to login ({0},{1}) due to exception: {2}", Username, Password, exception.Message);
+            }
 
             Assert.IsNotNull(authenticationToken);
             Assert.IsFalse(string.IsNullOrWhiteSpace(authenticationToken.Token));
