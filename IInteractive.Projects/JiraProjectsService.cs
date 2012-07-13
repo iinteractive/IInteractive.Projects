@@ -28,6 +28,11 @@ namespace IInteractive.Projects
             return _soapServiceClient.getProjectByKey(token.Token, key);
         }
 
+        public RemoteIssue CreateIssue(IAuthenticationToken token, RemoteIssue issue)
+        {
+            return _soapServiceClient.createIssue(token.Token, issue);
+        }
+
         public IAuthenticationToken GetUser(IAuthenticationToken token, string username)
         {
             IAuthenticationToken user = null;
@@ -49,7 +54,7 @@ namespace IInteractive.Projects
         public IAuthenticationToken Login(string username, string password)
         {
             string token = _soapServiceClient.login(username, password);
-            
+
             using (IUnityContainer container = new UnityContainer()
                 .LoadConfiguration())
             {

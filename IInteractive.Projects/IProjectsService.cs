@@ -12,6 +12,7 @@ namespace IInteractive.Projects
     {
         IEnumerable<RemoteProject> GetProjects(IAuthenticationToken token);
         RemoteProject GetProject(IAuthenticationToken token, string key);
+        RemoteIssue CreateIssue(IAuthenticationToken token, RemoteIssue issue);
 
         IAuthenticationToken GetUser(IAuthenticationToken token, string username);
 
